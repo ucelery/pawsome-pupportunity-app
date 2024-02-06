@@ -37,40 +37,37 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
-        startActivity(new Intent(MainActivity.this, DogAdoptionForm.class));
+        emailInput = findViewById(R.id.emailField);
+        passwordInput = findViewById(R.id.passwordField);
+
+        ImageButton loginButton = findViewById(R.id.loginBtn);
 
 
-//        emailInput = findViewById(R.id.emailField);
-//        passwordInput = findViewById(R.id.passwordField);
-//
-//        ImageButton loginButton = findViewById(R.id.loginBtn);
-//
-//
-//        loginButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                loginUser();
-//            }
-//        });
-//
-//
-//        TextView textView = findViewById(R.id.guestSpan);
-//        String text = "or\ncontinue as guest";
-//
-//        SpannableString ss = new SpannableString(text);
-//
-//        ClickableSpan clickableSpan = new ClickableSpan() {
-//            @Override
-//            public void onClick(@NonNull View widget) {
-//                Toast.makeText(MainActivity.this, "Open Guest View", Toast.LENGTH_SHORT).show();
-//            }
-//        };
-//
-//        ss.setSpan(clickableSpan, 15, 20, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//        textView.setText(ss);
-//        textView.setMovementMethod(LinkMovementMethod.getInstance());
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginUser();
+            }
+        });
+
+
+        TextView textView = findViewById(R.id.guestSpan);
+        String text = "or\ncontinue as guest";
+
+        SpannableString ss = new SpannableString(text);
+
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+                Toast.makeText(MainActivity.this, "Open Guest View", Toast.LENGTH_SHORT).show();
+            }
+        };
+
+        ss.setSpan(clickableSpan, 15, 20, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        textView.setText(ss);
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     private void loginUser() {
