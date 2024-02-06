@@ -95,34 +95,19 @@
         tools:ignore="RtlSymmetry" />
 
     <EditText
-        android:id="@+id/adopt_email"
+        android:id="@+id/adopt_address"
         android:layout_width="305dp"
         android:layout_height="50dp"
+        android:drawableStart="@drawable/location_icon"
+        android:drawablePadding="16dp"
         android:ems="10"
-        android:paddingStart="13dp"
-        android:inputType="text"
-        android:hint="Email"
         android:fontFamily="@font/kurale"
-        android:drawableStart="@drawable/email_icon_svg"
-        android:drawablePadding="13dp"
+        android:hint="Address"
+        android:inputType="text"
+        android:paddingStart="17dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adopt_name" />
-
-    <EditText
-        android:id="@+id/editTextText3"
-        android:layout_width="305dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:paddingStart="17dp"
-        android:inputType="text"
-        android:hint="Address"
-        android:fontFamily="@font/kurale"
-        android:drawableStart="@drawable/location_icon"
-        android:drawablePadding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adopt_email" />
 
     <EditText
         android:id="@+id/adopt_reason"
@@ -137,7 +122,7 @@
         android:drawablePadding="19dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+        app:layout_constraintTop_toBottomOf="@+id/adopt_address" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -146,11 +131,11 @@
         android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="@+id/adopt_reason"
         app:layout_constraintStart_toStartOf="@+id/adopt_reason"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/submit_btn"
         app:srcCompat="@drawable/ultra_whimsy_line_03" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/submit_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
