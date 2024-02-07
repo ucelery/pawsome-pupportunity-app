@@ -6,13 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".AdminDash">
 
-    <TextView
-        android:id="@+id/textView"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dogList_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/dogList_addBtn"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="175dp"
-        android:layout_marginTop="319dp"
-        android:text="Splurt"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
