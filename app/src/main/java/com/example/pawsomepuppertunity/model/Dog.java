@@ -12,12 +12,12 @@ public class Dog {
     private String sex;
     private String size;
     private String description;
-    private byte[] image;
+    private String image;
     private String birthday;
     public Dog() {
     }
 
-    public Dog(int id, String name, int age, String breed, String sex, String size, String description, byte[] image, String birthday) {
+    public Dog(int id, String name, int age, String breed, String sex, String size, String description, String image, String birthday) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -85,12 +85,12 @@ public class Dog {
         this.description = description;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
-        this.image = image;
+    public void setImage(String image) {
+        this.image =image;
     }
 
     public String getBirthday() {
@@ -101,19 +101,18 @@ public class Dog {
         this.birthday = birthday;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dog dog = (Dog) o;
-        return id == dog.id && age == dog.age && Objects.equals(name, dog.name) && Objects.equals(breed, dog.breed) && Objects.equals(sex, dog.sex) && Objects.equals(size, dog.size) && Objects.equals(description, dog.description) && Arrays.equals(image, dog.image) && Objects.equals(birthday, dog.birthday);
+        return id == dog.id && age == dog.age && Objects.equals(name, dog.name) && Objects.equals(breed, dog.breed) && Objects.equals(sex, dog.sex) && Objects.equals(size, dog.size) && Objects.equals(description, dog.description) && Objects.equals(image, dog.image) && Objects.equals(birthday, dog.birthday);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(id, name, age, breed, sex, size, description, birthday);
-        result = 31 * result + Arrays.hashCode(image);
-        return result;
+        return Objects.hash(id, name, age, breed, sex, size, description, image, birthday);
     }
 
     @Override
@@ -126,7 +125,7 @@ public class Dog {
                 ", sex='" + sex + '\'' +
                 ", size='" + size + '\'' +
                 ", description='" + description + '\'' +
-                ", image=" + Arrays.toString(image) +
+                ", image='" + image + '\'' +
                 ", birthday='" + birthday + '\'' +
                 '}';
     }

@@ -16,6 +16,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -61,72 +62,6 @@ public class AdminDogForm extends AppCompatActivity {
         });
 
 
-        initializeComponents();
-
-    }
-
-    private void initializeComponents() {
-        EditText nameInput = findViewById(R.id.dogName);
-        EditText ageInput = findViewById(R.id.dogAge);
-        EditText breedInput = findViewById(R.id.dogBreed);
-        EditText sexInput = findViewById(R.id.dogSex);
-        EditText sizeInput = findViewById(R.id.dogSize);
-        EditText descriptionInput = findViewById(R.id.dogDescription);
-        EditText birthdayInput = findViewById(R.id.dogBirthday);
-        ImageButton submitButton = findViewById(R.id.saveButton);
-
-
-        RetrofitService retrofitService = new RetrofitService();
-        DogApi dogApi = retrofitService.getDogApi();
-
-        submitButton.setOnClickListener(view -> {
-            String name = String.valueOf(nameInput.getText());
-            int age = Integer.parseInt(String.valueOf(ageInput.getText()));
-            String breed = String.valueOf(breedInput.getText());
-
-
-            String sex = String.valueOf(sexInput.getText());
-            String size = String.valueOf(sizeInput.getText());
-
-            String description = String.valueOf(descriptionInput.getText());
-            String birthday = String.valueOf(birthdayInput.getText());
-
-
-//            Bitmap dogImage = ((BitmapDrawable) uploadBtn.getDrawable()).getBitmap();
-//            byte[] imageBlob = bitmapToBlob(dogImage);
-
-            Dog dog = new Dog();
-
-            dog.setName(name);
-            dog.setAge(age);
-            dog.setBreed(breed);
-            dog.setSex(sex);
-            dog.setSize(size);
-            dog.setDescription(description);
-            dog.setBirthday(birthday);
-//            dog.setImage(imageBlob);
-
-
-            dogApi.save(dog).enqueue(new Callback<Dog>() {
-                @Override
-                public void onResponse(Call<Dog> call, Response<Dog> response) {
-                    if (response.isSuccessful()) {
-                        String successMessage = "Success";
-                        showToast(successMessage);
-                    } else {
-                        String errorMessage = "Failed: " + response.message();
-                        showErrorDialog(errorMessage);
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<Dog> call, Throwable t) {
-                    String errorMessage = "Failed: " + t.getMessage();
-                    showErrorDialog(errorMessage);
-                    Logger.getLogger(AdminDogForm.class.getName()).log(Level.SEVERE, "Error Occurred!", t);
-                }
-            });
-        });
     }
 
     private void showToast(String message) {
@@ -153,6 +88,59 @@ public class AdminDogForm extends AppCompatActivity {
             byte[] blob = uriToBlob(cr, uri);
 
             // TODO: Upload Blob to Database
+            EditText nameInput = findViewById(R.id.dogName);
+            EditText ageInput = findViewById(R.id.dogAge);
+            EditText breedInput = findViewById(R.id.dogBreed);
+            EditText sexInput = findViewById(R.id.dogSex);
+            EditText sizeInput = findViewById(R.id.dogSize);
+            EditText descriptionInput = findViewById(R.id.dogDescription);
+            EditText birthdayInput = findViewById(R.id.dogBirthday);
+            ImageButton submitButton = findViewById(R.id.saveButton);
+
+            RetrofitService retrofitService = new RetrofitService();
+            DogApi dogApi = retrofitService.getDogApi();
+
+            submitButton.setOnClickListener(view -> {
+                String name = String.valueOf(nameInput.getText());
+                int age = Integer.parseInt(String.valueOf(ageInput.getText()));
+                String breed = String.valueOf(breedInput.getText());
+                String sex = String.valueOf(sexInput.getText());
+                String size = String.valueOf(sizeInput.getText());
+                String description = String.valueOf(descriptionInput.getText());
+                String birthday = String.valueOf(birthdayInput.getText());
+
+                Dog dog = new Dog();
+
+                dog.setName(name);
+                dog.setAge(age);
+                dog.setBreed(breed);
+                dog.setSex(sex);
+                dog.setSize(size);
+                dog.setDescription(description);
+                dog.setBirthday(birthday);
+                dog.setImage(Base64.encodeToString(blob, Base64.DEFAULT));
+
+
+                dogApi.save(dog).enqueue(new Callback<Dog>() {
+                    @Override
+                    public void onResponse(Call<Dog> call, Response<Dog> response) {
+                        if (response.isSuccessful()) {
+                            String successMessage = "Success";
+                            showToast(successMessage);
+                        } else {
+                            String errorMessage = "Failed: " + response.message();
+                            showErrorDialog(errorMessage);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Dog> call, Throwable t) {
+                        String errorMessage = "Failed: " + t.getMessage();
+                        showErrorDialog(errorMessage);
+                        Logger.getLogger(AdminDogForm.class.getName()).log(Level.SEVERE, "Error Occurred!", t);
+                    }
+                });
+            });
 
 
             if (blob != null) {
