@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminDogForm">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#F0B232"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="45dp"
+                android:layout_height="40dp"
+                android:layout_gravity="start"
+                android:background="@drawable/logo_icon" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="35dp"
+                android:layout_height="36dp"
+                android:layout_gravity="end"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/crosshatch_01" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!--<androidx.cardview.widget.CardView-->
+<!--    android:id="@+id/imageButtonCard"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    app:cardCornerRadius="16dp"-->
+<!--    android:layout_marginTop="30dp"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintStart_toStartOf="parent"-->
+<!--    app:layout_constraintTop_toBottomOf="@+id/appBarLayout">-->
+<!--    -->
+<!--</androidx.cardview.widget.CardView>-->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardDogButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginVertical="28dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+                app:cardCornerRadius="15dp">
+                <ImageButton
+                    android:id="@+id/dogImageBtn"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/sample_dog"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+            </androidx.cardview.widget.CardView>
+
+    <EditText
+        android:fontFamily="@font/kurale"
+        android:textSize="15sp"
+        android:drawableStart="@drawable/at_sign"
+        android:drawablePadding="12dp"
+        android:paddingLeft="12dp"
+        android:paddingBottom="13dp"
+        android:id="@+id/dogName"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Dog Name"
+        app:layout_constraintEnd_toEndOf="@+id/cardDogButton"
+        app:layout_constraintStart_toStartOf="@+id/cardDogButton"
+        app:layout_constraintTop_toBottomOf="@+id/cardDogButton" />
+
+    <EditText
+        android:fontFamily="@font/kurale"
+        android:textSize="15sp"
+        android:drawableStart="@drawable/hashtag"
+        android:drawablePadding="10dp"
+        android:paddingLeft="11dp"
+        android:paddingBottom="13dp"
+        android:id="@+id/dogAge"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Dog Age"
+        app:layout_constraintEnd_toEndOf="@+id/dogName"
+        app:layout_constraintStart_toStartOf="@+id/dogName"
+        app:layout_constraintTop_toBottomOf="@+id/dogName" />
+
+    <EditText
+        android:fontFamily="@font/kurale"
+        android:textSize="15sp"
+        android:drawableStart="@drawable/dog_icon"
+        android:drawablePadding="11dp"
+        android:paddingLeft="12dp"
+        android:paddingBottom="13dp"
+        android:id="@+id/dogBreed"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Dog Breed"
+        app:layout_constraintTop_toBottomOf="@+id/dogAge"
+        app:layout_constraintEnd_toEndOf="@+id/dogAge"
+        app:layout_constraintStart_toStartOf="@+id/dogAge"
+        tools:layout_editor_absoluteX="99dp" />
+
+    <EditText
+        android:fontFamily="@font/kurale"
+        android:textSize="15sp"
+        android:drawableStart="@drawable/gender_icon"
+        android:drawablePadding="12dp"
+        android:paddingLeft="13dp"
+        android:paddingBottom="13dp"
+        android:id="@+id/dogSex"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Dog Sex"
+        app:layout_constraintEnd_toEndOf="@+id/dogBreed"
+        app:layout_constraintStart_toStartOf="@+id/dogBreed"
+        app:layout_constraintTop_toBottomOf="@+id/dogBreed"
+        tools:layout_editor_absoluteX="99dp" />
+
+    <EditText
+        android:id="@+id/dogSize"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:drawableStart="@drawable/size_icon"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:fontFamily="@font/kurale"
+        android:hint="Dog Size"
+        android:inputType="text"
+        android:paddingLeft="12dp"
+        android:paddingBottom="13dp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/dogSex"
+        app:layout_constraintStart_toStartOf="@+id/dogSex"
+        app:layout_constraintTop_toBottomOf="@+id/dogSex" />
+
+    <EditText
+        android:fontFamily="@font/kurale"
+        android:textSize="15sp"
+        android:drawableStart="@drawable/cake_icon"
+        android:drawablePadding="12dp"
+        android:paddingLeft="12dp"
+        android:paddingBottom="13dp"
+        android:id="@+id/dogBirthday"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Dog Birthday"
+        app:layout_constraintTop_toBottomOf="@+id/dogSize"
+        app:layout_constraintEnd_toEndOf="@+id/dogSize"
+        app:layout_constraintStart_toStartOf="@+id/dogSize"
+        tools:layout_editor_absoluteX="104dp" />
+
+    <EditText
+        android:fontFamily="@font/kurale"
+        android:textSize="15sp"
+        android:drawableStart="@drawable/question_mark"
+        android:drawablePadding="17dp"
+        android:paddingLeft="18dp"
+        android:paddingBottom="13dp"
+        android:id="@+id/dogDescription"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Dog Description"
+        app:layout_constraintTop_toBottomOf="@+id/dogBirthday"
+        app:layout_constraintEnd_toEndOf="@+id/dogBirthday"
+        app:layout_constraintStart_toStartOf="@+id/dogBirthday"
+        tools:layout_editor_absoluteX="99dp" />
+
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/saveDogCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            app:cardCornerRadius="50dp">
+
+            <ImageButton
+                android:id="@+id/saveButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/save_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/deleteDogCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            android:layout_toStartOf="@+id/saveDogCard"
+            app:cardCornerRadius="50dp">
+
+            <ImageButton
+                android:id="@+id/deleteButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/delete_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

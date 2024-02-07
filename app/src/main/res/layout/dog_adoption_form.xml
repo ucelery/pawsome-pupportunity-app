@@ -118,7 +118,7 @@
         android:inputType="text"
         android:hint="Reason for Adopting"
         android:fontFamily="@font/kurale"
-        android:drawableStart="@drawable/question_mark_icon"
+        android:drawableStart="@drawable/question_mark"
         android:drawablePadding="19dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,5 +1,6 @@
 package com.example.pawsomepuppertunity.model;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Dog {
@@ -11,12 +12,12 @@ public class Dog {
     private String sex;
     private String size;
     private String description;
-
+    private String image;
     private String birthday;
     public Dog() {
     }
 
-    public Dog(int id, String name, int age, String breed, String sex, String size, String description, String birthday) {
+    public Dog(int id, String name, int age, String breed, String sex, String size, String description, String image, String birthday) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -24,6 +25,7 @@ public class Dog {
         this.sex = sex;
         this.size = size;
         this.description = description;
+        this.image = image;
         this.birthday = birthday;
     }
 
@@ -83,6 +85,14 @@ public class Dog {
         this.description = description;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image =image;
+    }
+
     public String getBirthday() {
         return birthday;
     }
@@ -91,16 +101,32 @@ public class Dog {
         this.birthday = birthday;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dog dog = (Dog) o;
-        return id == dog.id && age == dog.age && Objects.equals(name, dog.name) && Objects.equals(breed, dog.breed) && Objects.equals(sex, dog.sex) && Objects.equals(size, dog.size) && Objects.equals(description, dog.description) && Objects.equals(birthday, dog.birthday);
+        return id == dog.id && age == dog.age && Objects.equals(name, dog.name) && Objects.equals(breed, dog.breed) && Objects.equals(sex, dog.sex) && Objects.equals(size, dog.size) && Objects.equals(description, dog.description) && Objects.equals(image, dog.image) && Objects.equals(birthday, dog.birthday);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, age, breed, sex, size, description, birthday);
+        return Objects.hash(id, name, age, breed, sex, size, description, image, birthday);
+    }
+
+    @Override
+    public String toString() {
+        return "Dog{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", breed='" + breed + '\'' +
+                ", sex='" + sex + '\'' +
+                ", size='" + size + '\'' +
+                ", description='" + description + '\'' +
+                ", image='" + image + '\'' +
+                ", birthday='" + birthday + '\'' +
+                '}';
     }
 }

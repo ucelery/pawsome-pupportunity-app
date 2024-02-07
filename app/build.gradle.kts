@@ -40,5 +40,6 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     // https://mvnrepository.com/artifact/com.squareup.retrofit2/converter-gson
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-
+    implementation("com.google.android.material:material:1.11.0")
+    implementation("com.github.dhaval2404:imagepicker:2.1")
 }
