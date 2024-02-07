@@ -7,16 +7,52 @@
     tools:context=".AdminDash">
 
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#F0B232"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="45dp"
+                android:layout_height="40dp"
+                android:layout_gravity="start"
+                android:background="@drawable/logo_icon" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="35dp"
+                android:layout_height="36dp"
+                android:layout_gravity="end"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/crosshatch_01" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dogList_recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/dogList_addBtn"
-
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/add_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
