@@ -38,25 +38,41 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-<androidx.cardview.widget.CardView
-    android:id="@+id/imageButtonCard"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="16dp"
-    android:layout_marginTop="30dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+    <!--<androidx.cardview.widget.CardView-->
+<!--    android:id="@+id/imageButtonCard"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    app:cardCornerRadius="16dp"-->
+<!--    android:layout_marginTop="30dp"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintStart_toStartOf="parent"-->
+<!--    app:layout_constraintTop_toBottomOf="@+id/appBarLayout">-->
+<!--    -->
+<!--</androidx.cardview.widget.CardView>-->
 
-    <ImageButton
-        android:id="@+id/dogImageBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:background="@tools:sample/avatars"
-        android:contentDescription="dogImageButton"/>
-</androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardDogButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginVertical="28dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+                app:cardCornerRadius="15dp">
+                <ImageButton
+                    android:id="@+id/dogImageBtn"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/sample_dog"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+            </androidx.cardview.widget.CardView>
 
     <EditText
+        android:fontFamily="@font/kurale"
+        android:textSize="15sp"
         android:drawableStart="@drawable/at_sign"
         android:drawablePadding="12dp"
         android:paddingLeft="12dp"
@@ -68,11 +84,13 @@
         android:ems="10"
         android:inputType="text"
         android:hint="Dog Name"
-        app:layout_constraintEnd_toEndOf="@+id/imageButtonCard"
-        app:layout_constraintStart_toStartOf="@+id/imageButtonCard"
-        app:layout_constraintTop_toBottomOf="@+id/imageButtonCard" />
+        app:layout_constraintEnd_toEndOf="@+id/cardDogButton"
+        app:layout_constraintStart_toStartOf="@+id/cardDogButton"
+        app:layout_constraintTop_toBottomOf="@+id/cardDogButton" />
 
     <EditText
+        android:fontFamily="@font/kurale"
+        android:textSize="15sp"
         android:drawableStart="@drawable/hashtag"
         android:drawablePadding="10dp"
         android:paddingLeft="11dp"
@@ -88,6 +106,8 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextText" />
 
     <EditText
+        android:fontFamily="@font/kurale"
+        android:textSize="15sp"
         android:drawableStart="@drawable/dog_icon"
         android:drawablePadding="11dp"
         android:paddingLeft="12dp"
@@ -104,7 +124,9 @@
         tools:layout_editor_absoluteX="99dp" />
 
     <EditText
-        android:drawableStart="@drawable/dog_sex"
+        android:fontFamily="@font/kurale"
+        android:textSize="15sp"
+        android:drawableStart="@drawable/gender_icon"
         android:drawablePadding="12dp"
         android:paddingLeft="13dp"
         android:paddingBottom="13dp"
@@ -120,7 +142,9 @@
         tools:layout_editor_absoluteX="99dp" />
 
     <EditText
-        android:drawableStart="@drawable/dog_size"
+        android:fontFamily="@font/kurale"
+        android:textSize="15sp"
+        android:drawableStart="@drawable/size_icon"
         android:drawablePadding="12dp"
         android:paddingLeft="12dp"
         android:paddingBottom="13dp"
@@ -136,7 +160,9 @@
         tools:layout_editor_absoluteX="108dp" />
 
     <EditText
-        android:drawableStart="@drawable/birthday_icon"
+        android:fontFamily="@font/kurale"
+        android:textSize="15sp"
+        android:drawableStart="@drawable/cake_icon"
         android:drawablePadding="12dp"
         android:paddingLeft="12dp"
         android:paddingBottom="13dp"
@@ -152,7 +178,9 @@
         tools:layout_editor_absoluteX="104dp" />
 
     <EditText
-        android:drawableStart="@drawable/question_mark_icon"
+        android:fontFamily="@font/kurale"
+        android:textSize="15sp"
+        android:drawableStart="@drawable/question_mark"
         android:drawablePadding="17dp"
         android:paddingLeft="18dp"
         android:paddingBottom="13dp"
@@ -167,7 +195,7 @@
         app:layout_constraintStart_toStartOf="@+id/editTextText6"
         tools:layout_editor_absoluteX="99dp" />
 
-    <RelativeLayout
+        <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -177,17 +205,18 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            app:cardCornerRadius="50dp"
-            app:layout_margin="16dp"
             android:layout_marginHorizontal="10dp"
-            android:layout_marginVertical="10dp">
+            android:layout_marginVertical="10dp"
+            app:cardCornerRadius="50dp">
 
             <ImageButton
-                android:id="@+id/saveDogButton"
+                android:id="@+id/saveButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                tools:background="@drawable/save_button"
-                android:contentDescription="dogImageButton"/>
+                android:background="@drawable/save_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -197,17 +226,17 @@
             android:layout_alignParentBottom="true"
             android:layout_marginHorizontal="10dp"
             android:layout_marginVertical="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_toStartOf="@+id/saveDogCard"
-            app:cardCornerRadius="50dp"
-            app:layout_margin="16dp">
+            app:cardCornerRadius="50dp">
 
             <ImageButton
-                android:id="@+id/deleteDogButton"
+                android:id="@+id/deleteButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:contentDescription="dogImageButton"
-                tools:background="@drawable/delete_button" />
+                android:background="@drawable/delete_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
