@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.pawsomepuppertunity.model.Dog;
@@ -31,6 +32,12 @@ public class AdminDash extends AppCompatActivity {
 
         loadDogs();
 
+        addDog();
+
+    }
+
+    private void addDog() {
+        ImageButton addButton = findViewById(R.id.add_button);
     }
 
     private void loadDogs() {

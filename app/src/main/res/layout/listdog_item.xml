@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     tools:ignore="UselessParent">
 
     <ImageView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/dogList_image"
         android:layout_width="92dp"
         android:layout_height="92dp"
@@ -16,7 +18,9 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
+        app:layout_constraintStart_toEndOf="@id/dogList_image"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center_vertical">
@@ -35,7 +39,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginBottom="15dp"
         android:textSize="16sp"
-        android:id="@+id/dogList_age"
+        android:id="@+id/dogList_id"
         android:text="Dog's ID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,4 +47,14 @@
 
     </LinearLayout>
 
-</LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#C2C2C2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="NotSibling">
+
+    </View>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

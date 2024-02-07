@@ -18,7 +18,7 @@ public class DogHolder extends RecyclerView.ViewHolder {
     public DogHolder (@NonNull View itemView) {
         super(itemView);
         name = itemView.findViewById(R.id.dogList_name);
-        id = itemView.findViewById(R.id.dogList_age);
+        id = itemView.findViewById(R.id.dogList_id);
         image = itemView.findViewById(R.id.dogList_image);
     }
 
