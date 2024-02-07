@@ -12,7 +12,7 @@ import com.example.pawsomepuppertunity.R;
 
 public class DogHolder extends RecyclerView.ViewHolder {
 
-    TextView name, id;
+    TextView name, id, age, breed, sex, size, birthday, description;
     ImageView image;
 
     public DogHolder (@NonNull View itemView) {

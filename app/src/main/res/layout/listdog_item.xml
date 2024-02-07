@@ -7,14 +7,16 @@
     android:orientation="horizontal"
     tools:ignore="UselessParent">
 
-    <ImageView
+    <ImageButton
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/dogList_image"
         android:layout_width="92dp"
         android:layout_height="92dp"
         android:padding="16dp"
-        tools:ignore="ContentDescription" />
+        android:scaleType="centerCrop"
+        tools:ignore="ContentDescription"
+        />
 
 
     <LinearLayout

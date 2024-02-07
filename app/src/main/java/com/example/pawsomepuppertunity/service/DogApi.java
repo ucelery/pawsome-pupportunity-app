@@ -17,4 +17,7 @@ public interface DogApi {
     @GET("/api/dogs/{id}")
     Call<Dog> getDog(@Body Dog dog);
 
+    @DELETE("/api/dogs/{id}")
+    Call<Dog> deleteDog(@Body Dog dog);
+
 }

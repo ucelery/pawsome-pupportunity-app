@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,32 +12,30 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.example.pawsomepuppertunity.R;
 import com.example.pawsomepuppertunity.model.Dog;
 
-import java.io.ByteArrayInputStream;
-import android.util.Base64;
 import java.util.List;
 
-public class DogAdapter extends RecyclerView.Adapter<DogHolder> {
+public class DogUpdateAdapter extends RecyclerView.Adapter<DogUpdateHolder> {
+
 
     private List<Dog> dogList;
 
-    public DogAdapter(List<Dog> dogList) {
+    public DogUpdateAdapter(List<Dog> dogList) {
         this.dogList = dogList;
     }
 
     @NonNull
     @Override
-    public DogHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public DogUpdateHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.listdog_item, parent, false);
-        return new DogHolder(view);
+        return new DogUpdateHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DogHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DogUpdateHolder holder, int position) {
         Dog dog = dogList.get(position);
         holder.name.setText(dog.getName());
         holder.id.setText(String.valueOf(dog.getId()));

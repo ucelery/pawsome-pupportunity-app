@@ -45,6 +45,7 @@ public class AdminDogForm extends AppCompatActivity {
     private ActivityResultLauncher<String> galleryLauncher;
     ImageButton uploadBtn;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminDogForm">
+    tools:context=".AdminDogUpdate">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -39,36 +39,36 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <!--<androidx.cardview.widget.CardView-->
-<!--    android:id="@+id/imageButtonCard"-->
-<!--    android:layout_width="wrap_content"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    app:cardCornerRadius="16dp"-->
-<!--    android:layout_marginTop="30dp"-->
-<!--    app:layout_constraintEnd_toEndOf="parent"-->
-<!--    app:layout_constraintStart_toStartOf="parent"-->
-<!--    app:layout_constraintTop_toBottomOf="@+id/appBarLayout">-->
-<!--    -->
-<!--</androidx.cardview.widget.CardView>-->
+    <!--    android:id="@+id/imageButtonCard"-->
+    <!--    android:layout_width="wrap_content"-->
+    <!--    android:layout_height="wrap_content"-->
+    <!--    app:cardCornerRadius="16dp"-->
+    <!--    android:layout_marginTop="30dp"-->
+    <!--    app:layout_constraintEnd_toEndOf="parent"-->
+    <!--    app:layout_constraintStart_toStartOf="parent"-->
+    <!--    app:layout_constraintTop_toBottomOf="@+id/appBarLayout">-->
+    <!--    -->
+    <!--</androidx.cardview.widget.CardView>-->
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardDogButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginVertical="28dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-                app:cardCornerRadius="15dp">
-                <ImageButton
-                    android:id="@+id/dogImageBtn"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/sample_dog"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
-            </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardDogButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginVertical="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:cardCornerRadius="15dp">
+        <ImageButton
+            android:id="@+id/dogUpdateImageBtn"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/sample_dog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+    </androidx.cardview.widget.CardView>
 
     <EditText
         android:fontFamily="@font/kurale"
@@ -77,7 +77,7 @@
         android:drawablePadding="12dp"
         android:paddingLeft="12dp"
         android:paddingBottom="13dp"
-        android:id="@+id/dogName"
+        android:id="@+id/dogUpdateName"
         android:layout_width="305dp"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
@@ -95,15 +95,15 @@
         android:drawablePadding="10dp"
         android:paddingLeft="11dp"
         android:paddingBottom="13dp"
-        android:id="@+id/dogAge"
+        android:id="@+id/dogUpdateAge"
         android:layout_width="305dp"
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="text"
         android:hint="Dog Age"
-        app:layout_constraintEnd_toEndOf="@+id/dogName"
-        app:layout_constraintStart_toStartOf="@+id/dogName"
-        app:layout_constraintTop_toBottomOf="@+id/dogName" />
+        app:layout_constraintEnd_toEndOf="@+id/dogUpdateName"
+        app:layout_constraintStart_toStartOf="@+id/dogUpdateName"
+        app:layout_constraintTop_toBottomOf="@+id/dogUpdateName" />
 
     <EditText
         android:fontFamily="@font/kurale"
@@ -112,15 +112,15 @@
         android:drawablePadding="11dp"
         android:paddingLeft="12dp"
         android:paddingBottom="13dp"
-        android:id="@+id/dogBreed"
+        android:id="@+id/dogUpdateBreed"
         android:layout_width="305dp"
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="text"
         android:hint="Dog Breed"
-        app:layout_constraintTop_toBottomOf="@+id/dogAge"
-        app:layout_constraintEnd_toEndOf="@+id/dogAge"
-        app:layout_constraintStart_toStartOf="@+id/dogAge"
+        app:layout_constraintTop_toBottomOf="@+id/dogUpdateAge"
+        app:layout_constraintEnd_toEndOf="@+id/dogUpdateAge"
+        app:layout_constraintStart_toStartOf="@+id/dogUpdateAge"
         tools:layout_editor_absoluteX="99dp" />
 
     <EditText
@@ -130,19 +130,19 @@
         android:drawablePadding="12dp"
         android:paddingLeft="13dp"
         android:paddingBottom="13dp"
-        android:id="@+id/dogSex"
+        android:id="@+id/dogUpdateSex"
         android:layout_width="305dp"
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="text"
         android:hint="Dog Sex"
-        app:layout_constraintEnd_toEndOf="@+id/dogBreed"
-        app:layout_constraintStart_toStartOf="@+id/dogBreed"
-        app:layout_constraintTop_toBottomOf="@+id/dogBreed"
+        app:layout_constraintEnd_toEndOf="@+id/dogUpdateBreed"
+        app:layout_constraintStart_toStartOf="@+id/dogUpdateBreed"
+        app:layout_constraintTop_toBottomOf="@+id/dogUpdateBreed"
         tools:layout_editor_absoluteX="99dp" />
 
     <EditText
-        android:id="@+id/dogSize"
+        android:id="@+id/dogUpdateSize"
         android:layout_width="305dp"
         android:layout_height="50dp"
         android:drawableStart="@drawable/size_icon"
@@ -154,9 +154,9 @@
         android:paddingLeft="12dp"
         android:paddingBottom="13dp"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/dogSex"
-        app:layout_constraintStart_toStartOf="@+id/dogSex"
-        app:layout_constraintTop_toBottomOf="@+id/dogSex" />
+        app:layout_constraintEnd_toEndOf="@+id/dogUpdateSex"
+        app:layout_constraintStart_toStartOf="@+id/dogUpdateSex"
+        app:layout_constraintTop_toBottomOf="@+id/dogUpdateSex" />
 
     <EditText
         android:fontFamily="@font/kurale"
@@ -165,15 +165,15 @@
         android:drawablePadding="12dp"
         android:paddingLeft="12dp"
         android:paddingBottom="13dp"
-        android:id="@+id/dogBirthday"
+        android:id="@+id/dogUpdateBirthday"
         android:layout_width="305dp"
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="text"
         android:hint="Dog Birthday"
-        app:layout_constraintTop_toBottomOf="@+id/dogSize"
-        app:layout_constraintEnd_toEndOf="@+id/dogSize"
-        app:layout_constraintStart_toStartOf="@+id/dogSize"
+        app:layout_constraintTop_toBottomOf="@+id/dogUpdateSize"
+        app:layout_constraintEnd_toEndOf="@+id/dogUpdateSize"
+        app:layout_constraintStart_toStartOf="@+id/dogUpdateSize"
         tools:layout_editor_absoluteX="104dp" />
 
     <EditText
@@ -183,18 +183,18 @@
         android:drawablePadding="17dp"
         android:paddingLeft="18dp"
         android:paddingBottom="13dp"
-        android:id="@+id/dogDescription"
+        android:id="@+id/dogUpdateDescription"
         android:layout_width="305dp"
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="text"
         android:hint="Dog Description"
-        app:layout_constraintTop_toBottomOf="@+id/dogBirthday"
-        app:layout_constraintEnd_toEndOf="@+id/dogBirthday"
-        app:layout_constraintStart_toStartOf="@+id/dogBirthday"
+        app:layout_constraintTop_toBottomOf="@+id/dogUpdateBirthday"
+        app:layout_constraintEnd_toEndOf="@+id/dogUpdateBirthday"
+        app:layout_constraintStart_toStartOf="@+id/dogUpdateBirthday"
         tools:layout_editor_absoluteX="99dp" />
 
-        <RelativeLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -218,6 +218,25 @@
                 app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/deleteDogCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            android:layout_toStartOf="@+id/saveDogCard"
+            app:cardCornerRadius="50dp">
+
+            <ImageButton
+                android:id="@+id/deleteButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/delete_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+        </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
