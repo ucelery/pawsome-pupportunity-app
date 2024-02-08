@@ -29,8 +29,6 @@ public class DogAdoptionForm extends AppCompatActivity {
     }
 
     private void sendEmail() {
-        Toast.makeText(DogAdoptionForm.this, "Sending Email", Toast.LENGTH_SHORT).show();
-
         EditText name_editText = findViewById(R.id.adopt_name);
         String name = name_editText.getText().toString();
 
@@ -52,8 +50,10 @@ public class DogAdoptionForm extends AppCompatActivity {
         emailIntent.putExtra(Intent.EXTRA_EMAIL, recipient);
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Dog Adoption");
 
-        String emailBody = "Hello! I would like to adopt <name of dog>. " +
-                "I assure you they will be in good hands! \n\n" +
+        String dogName = getIntent().getStringExtra("dogName");
+
+        String emailBody = "Hello! I would like to adopt " + dogName +
+                ". I assure you they will be in good hands! \n\n" +
                 "Physical Address: \n" + address + "\n\n" +
                 "Sincerely, " + name + ".";
         emailIntent.putExtra(Intent.EXTRA_TEXT, emailBody);
@@ -61,7 +61,6 @@ public class DogAdoptionForm extends AppCompatActivity {
         try {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));
             finish();
-            Log.i("Finished sending email...", "");
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(DogAdoptionForm.this,
                     "There is no email client installed.", Toast.LENGTH_SHORT).show();
