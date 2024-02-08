@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pawsomepuppertunity.AdminDash;
 import com.example.pawsomepuppertunity.AdminDogUpdate;
+import com.example.pawsomepuppertunity.DogAdoptionForm;
 import com.example.pawsomepuppertunity.R;
 import com.example.pawsomepuppertunity.model.Dog;
 
@@ -38,6 +39,7 @@ public class DogAdapter extends RecyclerView.Adapter<DogHolder> {
     private List<Dog> dogList;
     private OnItemClickListener mListener;
     private Context mContext;
+    private boolean isUserView = false;
 
 
     public DogAdapter(Context context, List<Dog> dogList) {
@@ -45,17 +47,23 @@ public class DogAdapter extends RecyclerView.Adapter<DogHolder> {
         this.dogList = dogList;
     }
 
-
-//
-//    public DogAdapter(List<Dog> dogList) {
-//        this.dogList = dogList;
-//    }
+    public DogAdapter(Context context, List<Dog> dogList, boolean isUserView) {
+        this.mContext = context;
+        this.dogList = dogList;
+        this.isUserView = isUserView;
+    }
 
     @NonNull
     @Override
     public DogHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.listdog_item, parent, false);
+
+        if (isUserView) {
+            ImageButton utilButton = view.findViewById(R.id.editButton);
+            utilButton.setImageResource(R.drawable.box);
+        }
+
         return new DogHolder(view);
     }
 
@@ -69,7 +77,8 @@ public class DogAdapter extends RecyclerView.Adapter<DogHolder> {
             @Override
             public void onClick(View v) {
                 // Handle item click
-                Intent intent = new Intent(mContext, AdminDogUpdate.class);
+                Intent intent = new Intent(mContext, DogAdoptionForm.class);
+
                 intent.putExtra("dogId", dog.getId()); // Pass dog ID to the next activity
                 intent.putExtra("dogName", dog.getName());
                 intent.putExtra("dogAge", dog.getAge());
@@ -101,7 +110,7 @@ public class DogAdapter extends RecyclerView.Adapter<DogHolder> {
                 } catch (FileNotFoundException e) {
                     throw new RuntimeException(e);
                 }
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream); // Adjust compression quality if needed
+                // bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream); // Adjust compression quality if needed
                 try {
                     outputStream.close();
                 } catch (IOException e) {
