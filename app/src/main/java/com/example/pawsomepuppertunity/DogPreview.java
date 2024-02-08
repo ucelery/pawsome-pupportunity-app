@@ -1,5 +1,6 @@
 package com.example.pawsomepuppertunity;
 
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,7 +17,15 @@ import android.widget.TextView;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
 
+import java.io.File;
+
 public class DogPreview extends AppCompatActivity {
+
+    ImageView image;
+
+    private ActivityResultLauncher<String> galleryLauncher;
+
+
 
     int dogId;
     String dogName;
@@ -27,13 +36,15 @@ public class DogPreview extends AppCompatActivity {
     String dogBirthday;
     String dogDescription;
     String dogImage;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dog_preview);
 
-        updateValues();
+        image = findViewById(R.id.dogImage);
+
+        updateValues(); 
         adoptListener();
     }
 
@@ -89,15 +100,20 @@ public class DogPreview extends AppCompatActivity {
         dogSizeText.setText(dogSize);
 
         // Decode Base64 string to byte array
-        byte[] bytesDecodedImage = Base64.decode(dogImage, Base64.DEFAULT);
+        loadImagefromURI(dogImage);
 
-        // Convert byte array to Bitmap
-        Bitmap bitmapImage = BitmapFactory.decodeByteArray(bytesDecodedImage, 0, bytesDecodedImage.length);
+    }
 
-        // Convert Bitmap to Drawable
-        Drawable drawableImage = new BitmapDrawable(getResources(), bitmapImage);
+    private void loadImagefromURI(String imagePath) {
+        if (imagePath != null && !imagePath.isEmpty()) {
+            File imgFile = new  File(imagePath);
+            if(imgFile.exists()){
+                Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                image.setImageBitmap(myBitmap);
 
-        // Set the Drawable as background for the view
-        dogImageView.setBackground(drawableImage);
+                // Delete the temporary file after loading the image
+                imgFile.delete();
+            }
+        }
     }
 }

@@ -76,7 +76,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onItemClick(Dog dog) {
                 // Handle item click
-                Intent intent = new Intent(HomePage.this, DogAdoptionForm.class);
+                Intent intent = new Intent(HomePage.this, DogPreview.class);
                 intent.putExtra("dogId", dog.getId()); // Pass dog ID to the next activity
                 intent.putExtra("dogName", dog.getName());
                 intent.putExtra("dogAge", dog.getAge());

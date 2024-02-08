@@ -93,7 +93,41 @@ public class DogAdapter extends RecyclerView.Adapter<DogHolder> {
                 intent.putExtra("dogSize", dog.getSize());
                 intent.putExtra("dogBirthday", dog.getBirthday());
                 intent.putExtra("dogDescription", dog.getDescription());
-                intent.putExtra("dogImage", dog.getImage());
+
+
+
+                // Decode Base64 string to byte array
+                byte[] bytesDecodedImage = Base64.decode(dog.getImage(), Base64.DEFAULT);
+
+                // Convert byte array to Bitmap
+                Bitmap bitmapImage = BitmapFactory.decodeByteArray(bytesDecodedImage, 0, bytesDecodedImage.length);
+
+
+                File imageFile;
+                try {
+                    imageFile = createTempFile("dog_image", ".jpg", mContext.getCacheDir());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+                Bitmap bitmap = bitmapImage; // Assuming the image is accessible from the Dog object
+                OutputStream outputStream = null;
+                try {
+                    outputStream = new FileOutputStream(imageFile);
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream); // Adjust compression quality if needed
+                try {
+                    outputStream.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+
+                String filePath = imageFile.getAbsolutePath();
+
+                intent.putExtra("dogImage", filePath);
 
                 mContext.startActivity(intent);
             }
