@@ -49,6 +49,18 @@
 
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/editButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:src="@android:drawable/ic_menu_edit"
+        app:layout_constraintBottom_toBottomOf="@id/dogList_image"
+        android:layout_margin="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/dogList_image" />
+
+
 
     <View
         android:layout_width="match_parent"
@@ -58,5 +70,6 @@
         tools:ignore="NotSibling">
 
     </View>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

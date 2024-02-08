@@ -1,11 +1,17 @@
 package com.example.pawsomepuppertunity;
 
+import static java.io.File.createTempFile;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -15,6 +21,12 @@ import com.example.pawsomepuppertunity.service.DogApi;
 import com.example.pawsomepuppertunity.service.RetrofitService;
 import com.example.pawsomepuppertunity.view.DogAdapter;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.sql.Blob;
 import java.util.List;
 
 import retrofit2.Call;
@@ -24,6 +36,8 @@ import retrofit2.Response;
 public class AdminDash extends AppCompatActivity {
 
     private RecyclerView recyclerView;
+    private DogAdapter dogAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +51,7 @@ public class AdminDash extends AppCompatActivity {
         addDog();
 
     }
+ 
 
     private void addDog() {
         ImageButton addButton = findViewById(R.id.add_button);
@@ -68,8 +83,62 @@ public class AdminDash extends AppCompatActivity {
     }
 
     private void populateListView(List<Dog> dogList) {
-        DogAdapter dogAdapter = new DogAdapter(dogList);
+        dogAdapter = new DogAdapter( AdminDash.this,dogList);
         recyclerView.setAdapter(dogAdapter);
+
+
+        // Set click listener for each dog item
+        dogAdapter.setOnItemClickListener(new DogAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Dog dog) {
+                // Handle item click
+                Intent intent = new Intent(AdminDash.this, AdminDogUpdate.class);
+                intent.putExtra("dogId", dog.getId()); // Pass dog ID to the next activity
+                intent.putExtra("dogName", dog.getName());
+                intent.putExtra("dogAge", dog.getAge());
+                intent.putExtra("dogBreed", dog.getBreed());
+                intent.putExtra("dogSex", dog.getSex());
+                intent.putExtra("dogSize", dog.getSize());
+                intent.putExtra("dogBirthday", dog.getBirthday());
+                intent.putExtra("dogDescription", dog.getDescription());
+
+                // Decode Base64 string to byte array
+                byte[] bytesDecodedImage = Base64.decode(dog.getImage(), Base64.DEFAULT);
+
+                // Convert byte array to Bitmap
+                Bitmap bitmapImage = BitmapFactory.decodeByteArray(bytesDecodedImage, 0, bytesDecodedImage.length);
+
+
+                File imageFile;
+                try {
+                    imageFile = createTempFile("dog_image", ".png", AdminDash.this.getCacheDir());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+                Bitmap bitmap = bitmapImage; // Assuming the image is accessible from the Dog object
+                OutputStream outputStream = null;
+                try {
+                    outputStream = new FileOutputStream(imageFile);
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream); // Adjust compression quality if needed
+                try {
+                    outputStream.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+//                String filePath = imageFile.getAbsolutePath();
+
+                Uri imagePath = Uri.fromFile(imageFile);
+
+                intent.putExtra("dogImage", imagePath);
+
+                startActivity(intent);
+            }
+        });
 
     }
 }

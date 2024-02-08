@@ -15,9 +15,12 @@ public interface DogApi {
     Call<Dog> save(@Body Dog dog);
 
     @GET("/api/dogs/{id}")
-    Call<Dog> getDog(@Body Dog dog);
+    Call<Dog> getDog(@Path("id") int id);
+
+    @PUT("/update-dog/{id}")
+    Call<Dog> updateDog(@Path("id") int id, @Body Dog dog);
 
     @DELETE("/api/dogs/{id}")
-    Call<Dog> deleteDog(@Body Dog dog);
+    Call<Dog> deleteDog(@Path("id") int id);
 
 }
