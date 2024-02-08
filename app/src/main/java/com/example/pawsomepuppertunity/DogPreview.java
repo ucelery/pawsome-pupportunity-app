@@ -3,9 +3,15 @@ package com.example.pawsomepuppertunity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
@@ -60,6 +66,7 @@ public class DogPreview extends AppCompatActivity {
         TextView dogSexText = findViewById(R.id.sexText);
         TextView dogBirthText = findViewById(R.id.birthText);
         TextView dogSizeText = findViewById(R.id.sizeText);
+        ImageView dogImageView = findViewById(R.id.dogImage);
 
         // Retrieve dogId from the previous intent
         dogId = getIntent().getIntExtra("dogId", -1);
@@ -80,5 +87,17 @@ public class DogPreview extends AppCompatActivity {
         int indexOfT = dogBirthday.indexOf("T");
         dogBirthText.setText(dogBirthday.substring(0, indexOfT));
         dogSizeText.setText(dogSize);
+
+        // Decode Base64 string to byte array
+        byte[] bytesDecodedImage = Base64.decode(dogImage, Base64.DEFAULT);
+
+        // Convert byte array to Bitmap
+        Bitmap bitmapImage = BitmapFactory.decodeByteArray(bytesDecodedImage, 0, bytesDecodedImage.length);
+
+        // Convert Bitmap to Drawable
+        Drawable drawableImage = new BitmapDrawable(getResources(), bitmapImage);
+
+        // Set the Drawable as background for the view
+        dogImageView.setBackground(drawableImage);
     }
 }

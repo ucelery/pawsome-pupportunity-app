@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
-                Toast.makeText(MainActivity.this, "Open Guest View", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, HomePage.class));
             }
         };
 

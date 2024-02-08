@@ -22,7 +22,7 @@
             android:name=".DogPreview"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".HomePage"
             android:exported="false" />
         <activity
             android:name=".AdminDogUpdate"
@@ -37,7 +37,7 @@
             android:name=".AdminDash"
             android:exported="false" />
         <activity
-            android:name=".HomePage"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
