@@ -77,8 +77,13 @@ public class DogAdapter extends RecyclerView.Adapter<DogHolder> {
         holder.editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent;
+
                 // Handle item click
-                Intent intent = new Intent(mContext, DogPreview.class);
+                if (isUserView)
+                    intent = new Intent(mContext, DogPreview.class);
+                else
+                    intent = new Intent(mContext, AdminDogUpdate.class);
 
                 intent.putExtra("dogId", dog.getId()); // Pass dog ID to the next activity
                 intent.putExtra("dogName", dog.getName());
