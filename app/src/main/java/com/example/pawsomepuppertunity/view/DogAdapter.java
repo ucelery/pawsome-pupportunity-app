@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pawsomepuppertunity.AdminDash;
 import com.example.pawsomepuppertunity.AdminDogUpdate;
 import com.example.pawsomepuppertunity.DogAdoptionForm;
+import com.example.pawsomepuppertunity.DogPreview;
 import com.example.pawsomepuppertunity.R;
 import com.example.pawsomepuppertunity.model.Dog;
 
@@ -77,7 +78,7 @@ public class DogAdapter extends RecyclerView.Adapter<DogHolder> {
             @Override
             public void onClick(View v) {
                 // Handle item click
-                Intent intent = new Intent(mContext, DogAdoptionForm.class);
+                Intent intent = new Intent(mContext, DogPreview.class);
 
                 intent.putExtra("dogId", dog.getId()); // Pass dog ID to the next activity
                 intent.putExtra("dogName", dog.getName());
