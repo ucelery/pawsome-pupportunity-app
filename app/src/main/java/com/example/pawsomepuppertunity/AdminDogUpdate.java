@@ -79,11 +79,39 @@ public class AdminDogUpdate extends AppCompatActivity {
 
         String dateOnly = dogBirthday.substring(0, 10);
         birthday.setText(dateOnly); // Set the date portion to the TextView
-        
+
         description.setText(dogDescription);
 
 
         loadImagefromURI(dogImage);
+
+        delete = findViewById(R.id.deleteButton);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RetrofitService retrofitService = new RetrofitService();
+                DogApi dogApi = retrofitService.getDogApi();
+                dogApi.deleteDog(dogId)
+                        .enqueue(new Callback<Dog>() {
+                            @Override
+                            public void onResponse(Call<Dog> call, Response<Dog> response) {
+                                if (response.isSuccessful()) {
+                                    // Dog deleted successfully, finish the activity
+                                    finish();
+                                    showToast("Done!");
+                                } else {
+                                    // Show error message if deletion fails
+                                    showErrorDialog("Failed to delete the dog: " + response.message());
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<Dog> call, Throwable t) {
+                                showErrorDialog("Failed to delete the dog: " + t.getMessage());
+                            }
+                        });
+            }
+        });
 
 
         image.setOnClickListener(new View.OnClickListener() {
@@ -175,13 +203,10 @@ public class AdminDogUpdate extends AppCompatActivity {
                 dogApi.updateDog(id, dog).enqueue(new Callback<Dog>() {
                     @Override
                     public void onResponse(Call<Dog> call, Response<Dog> response) {
-                        if (response.isSuccessful()) {
                             String successMessage = "Success";
                             showToast(successMessage);
-                        } else {
-                            String errorMessage = "Failed: " + response.message();
-                            showErrorDialog(errorMessage);
-                        }
+                            finish();
+
                     }
 
                     @Override

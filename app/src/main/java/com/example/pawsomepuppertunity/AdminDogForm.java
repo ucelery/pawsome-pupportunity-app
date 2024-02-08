@@ -121,6 +121,7 @@ public class AdminDogForm extends AppCompatActivity {
                         if (response.isSuccessful()) {
                             String successMessage = "Success";
                             showToast(successMessage);
+                            finish();
                         } else {
                             String errorMessage = "Failed: " + response.message();
                             showErrorDialog(errorMessage);
